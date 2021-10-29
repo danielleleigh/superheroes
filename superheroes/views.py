@@ -34,3 +34,6 @@ def create(request):
         return HttpResponseRedirect(reverse('superheroes:index'))
     else:
         return render(request, 'superheroes/create.html')
+    
+def edit(request):
+    if request.method == "POST":
