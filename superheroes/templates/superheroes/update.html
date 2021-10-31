@@ -7,15 +7,12 @@
     <title>Update Hero</title>
   </head>
   <body>
-    <form action="{% url 'superheroes:update' %}" method="post">
-      {% csrf_token %} Name: <input type="text" name="name" id="name" /> <br />
-      Alter Ego: <input type="text" name="alter_ego" id="alter_ego" /> <br />
-      Primary Ability: <input type="text" name="primary" id="primary" /> <br />
-      Secondary Ability: <input type="text" name="secondary" id="secondary" />
-      <br />
-      Catchphrase: <input type="text" name="catchphrase" id="catchphrase" />
-      <br />
-      <input type="submit" value="Update!" />
+    <h2>{{update}}</h2>
+    <form action="{% url 'superheroes:update' hero.id %}" method="post">
+      {% csrf_token %} {{form.as_p}}
+      <input type="submit" value="Update Hero" />
     </form>
+    <br />
+    <a href="{% url 'superheroes:index' %}">Return Home</a>
   </body>
 </html>

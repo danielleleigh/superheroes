@@ -1,8 +1,13 @@
-from io import DEFAULT_BUFFER_SIZE
-from django.shortcuts import redirect, render
+from django import forms
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import render, redirect
 from .models import Superhero
+
+
+
+
+
 
 # Create your views here.
 
@@ -44,8 +49,12 @@ def delete(request, hero_id):
     return HttpResponseRedirect(reverse('superheroes:index'))
 
 def update(request, hero_id):
-    single_hero = Superhero.objects.get(pk=hero_id)
+    updated_hero = Superhero.objects.get(pk=hero_id)
+    form = EditSuperhero(request.POST or None, instance = updated_hero)
+    if form.is_valid():
+        form.save
     context = {
-        'single_hero': single_hero
+        'form':form,
+        'updated_hero': updated_hero
     }
-    return HttpResponseRedirect(reverse('superheroes:update'))
+    return render(request, 'superheroes/update.html')
