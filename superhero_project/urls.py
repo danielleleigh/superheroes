@@ -25,5 +25,4 @@ urlpatterns = [
     path('detail/<int:hero_id>', views.detail, name='detail'),
     path('delete/<int:hero_id>', views.delete, name='delete'),
     path('update/<int:hero_id>', views.update, name='update'),
-
 ]
