@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm, widgets, fields
 from models import Superhero
+from forms import EditSuperhero
 
 class EditSuperhero(ModelForm):
     class Meta:
