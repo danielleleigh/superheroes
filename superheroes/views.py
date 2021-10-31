@@ -3,10 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from .models import Superhero
-from forms import EditSuperhero
-
-
-
+from .forms import EditSuperhero
+#terminal showing forms as invalid module, unsure why
 
 # Create your views here.
 
@@ -56,4 +54,4 @@ def update(request, hero_id):
         'form':form,
         'updated_hero': updated_hero
     }
-    return render(request, 'superheroes/update.html')
+    return render(request, 'superheroes/update.html', context)

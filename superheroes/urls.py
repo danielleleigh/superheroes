@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 app_name = 'superheroes'
 urlpatterns = [
@@ -9,3 +10,5 @@ urlpatterns = [
     path('delete/<int:hero_id>', views.delete, name='delete'),
     path('update/<int:hero_id>', views.update, name='update'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
