@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,24 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Superhero Index</title>
-    {% load static %}
+    <center><img src="{% static 'images/newspawn.jpeg' %}" /></center>
   </head>
   <body>
-    <h1>List of Heroes</h1>
-    <ul>
-      {% for hero in all_heroes %}
-      <li>
-        <h2>
-          {{hero.name}} -
-          <a href="{% url 'superheroes:detail' hero.id %}">Click for Details</a>
-          <a href="{% url 'superheroes:delete' hero.id%}">Delete Hero</a>
-          <a href="{% url 'superheroes:update' hero.id%}">Update Hero</a>
-        </h2>
-      </li>
-      {% endfor %}
-    </ul>
-
-    <a href="{% url 'superheroes:create'%}">Add New Hero</a>
-    <img src={% static "spawnimage.jpg" %}>
+    <center>
+      <h1>List of Heroes</h1>
+      <ul>
+        {% for hero in all_heroes %}
+        <li>
+          <h2>
+            {{hero.name}} <br />
+            <a href="{% url 'superheroes:detail' hero.id %}"
+              >Click for Details</a
+            >
+            <a href="{% url 'superheroes:delete' hero.id%}">Delete Hero</a>
+            <a href="{% url 'superheroes:update' hero.id%}">Update Hero</a>
+          </h2>
+        </li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'superheroes:create'%}">Add New Hero</a>
+    </center>
   </body>
 </html>
