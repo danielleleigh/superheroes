@@ -8,8 +8,9 @@
   </head>
   <body>
     <h2>{{update}}</h2>
-    <form action="" method="POST">
+    <form action="{% url 'superheroes:update' %}" method="POST">
       {% csrf_token %} {{form.as_p}}
+
       <input type="submit" value="Update Hero" />
     </form>
     <br />
